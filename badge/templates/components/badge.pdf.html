@@ -1,0 +1,37 @@
+{% extends "base.url.html" %} {% block content %}
+
+<body
+  class="bg-gray-100 flex flex-col items-center justify-center min-h-screen relative"
+>
+  <!-- Boutons Action (Impression & PDF) -->
+  <div
+    class="absolute lg:left-[60vh] left-20 z-50 space-y-4 bg-white rounded-lg p-3 shadow-lg"
+  >
+    <div>
+      <button
+        onclick="window.print()"
+        class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg shadow hover:bg-blue-700 transition"
+      >
+        Imprimer
+      </button>
+    </div>
+    <div>
+      <button
+        onclick="downloadPDF()"
+        class="px-4 py-2 bg-gray-800 text-white text-sm rounded-lg shadow hover:bg-gray-900 transition"
+      >
+        Télécharger PDF
+      </button>
+    </div>
+  </div>
+  <!-- Boutons de couleur + Color Picker -->
+  {% include "components/form/form.color.html" %}
+
+  <!-- Sélecteur de taille -->
+  {% include "components/form/form.size.html" %}
+
+  <!-- Badge Étudiant -->
+  {% include "components/card.badge.html" %}
+
+</body>
+{% endblock %}

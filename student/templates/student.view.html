@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}Ajouter un Étudiant{% endblock %}
+{%block content %}
+<div class="lg:flex justify-between w-full gap-4">
+  <div class="lg:w-[100vh] bg-white p-4 rounded shadow-lg">
+    <h2 class="text-2xl font-bold text-blue-600 mb-6 text-center">
+      Ajouter un Badge Étudiant
+    </h2>
+    <!-- Breadcrumb -->
+    {% include "components/breadcrumb/breadcrumb.student.html" %}
+
+    <!-- formulaire pour ajouter etudiant -->
+    {% include "components/form/student.form.html" %}
+  </div>
+<div>
+  <!-- card pour afficher la view des etudeiants -->
+  {% include "components/card/card.student.html" %} {% endblock %}
+</div>
+</div>

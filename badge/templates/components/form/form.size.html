@@ -1,0 +1,57 @@
+<div
+  id="radioGroup"
+  class="absolute top-16 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-6 bg-white p-2 rounded-lg shadow border"
+>
+  <label class="flex items-center gap-2 cursor-pointer">
+    <input
+      type="radio"
+      name="taille"
+      value="sm"
+      class="sr-only"
+      onchange="resizeBadge('sm')"
+    />
+    <div
+      class="radio-circle w-4 h-4 rounded-full border-2 border-cyan-500 flex items-center justify-center"
+    >
+      <div
+        class="radio-dot w-2 h-2 rounded-full bg-cyan-500 scale-0 transition-transform"
+      ></div>
+    </div>
+    <span class="text-sm text-gray-700 font-medium">Petit</span>
+  </label>
+  <label class="flex items-center gap-2 cursor-pointer">
+    <input
+      type="radio"
+      name="taille"
+      value="md"
+      class="sr-only"
+      onchange="resizeBadge('md')"
+      checked
+    />
+    <div
+      class="radio-circle w-4 h-4 rounded-full border-2 border-cyan-500 flex items-center justify-center"
+    >
+      <div
+        class="radio-dot w-2 h-2 rounded-full bg-cyan-500 scale-100 transition-transform"
+      ></div>
+    </div>
+    <span class="text-sm text-gray-700 font-medium">Moyen</span>
+  </label>
+  <label class="flex items-center gap-2 cursor-pointer">
+    <input
+      type="radio"
+      name="taille"
+      value="lg"
+      class="sr-only"
+      onchange="resizeBadge('lg')"
+    />
+    <div
+      class="radio-circle w-4 h-4 rounded-full border-2 border-cyan-500 flex items-center justify-center"
+    >
+      <div
+        class="radio-dot w-2 h-2 rounded-full bg-cyan-500 scale-0 transition-transform"
+      ></div>
+    </div>
+    <span class="text-sm text-gray-700 font-medium">Grand</span>
+  </label>
+</div>

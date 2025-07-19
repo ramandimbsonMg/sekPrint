@@ -1,0 +1,147 @@
+{% if request.user.is_authenticated %}
+<!-- Toggle button for mobile -->
+<div class="md:hidden p-4">
+  <button
+    id="menu-toggle"
+    class="text-gray-600 hover:text-gray-800 focus:outline-none"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="currentColor"
+      class="bi bi-list"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+      />
+    </svg>
+  </button>
+</div>
+
+<!-- Sidebar menu -->
+<aside
+  id="dashboard-menu"
+  class="bg-white shadow-md border-r w-full md:w-64 h-full fixed md:static top-0 left-0 z-50 md:translate-x-0 -translate-x-full transition-transform duration-300 ease-in-out rounded"
+>
+  <div class="p-4 border-b flex justify-between items-center">
+    <h2 class="text-xl font-bold text-blue-600">🎓 Menu Dashboard</h2>
+    <button class="md:hidden text-gray-500" id="menu-close">✕</button>
+  </div>
+  <nav class="p-4 space-y-4 text-sm font-medium text-gray-700">
+    <!-- Dashboard -->
+    <a
+      href="{% url 'dashboard' %}"
+      class="flex items-center gap-2 px-4 py-2 rounded transition hover:bg-blue-50 hover:text-blue-600 {% if request.resolver_match.url_name == 'dashboard' %} bg-blue-100 text-blue-700 {% endif %}"
+    >
+      <!-- SVG -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-speedometer"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.39.39 0 0 0-.029-.518z"
+        />
+        <path
+          fill-rule="evenodd"
+          d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.95 11.95 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0"
+        />
+      </svg>
+      Dashboard
+    </a>
+
+    <!-- Ajouter École -->
+    <a
+      href="{% url 'creer_ecole' %}"
+      class="flex items-center gap-2 px-4 py-2 rounded transition hover:bg-green-50 hover:text-green-600 {% if request.resolver_match.url_name == 'creer_ecole' %} bg-green-100 text-green-700 {% endif %}"
+    >
+      <!-- SVG -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-building-fill-add"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0"
+        />
+        <path
+          d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1z"
+        />
+      </svg>
+      Ajouter une École
+    </a>
+
+    <!-- Ajouter Classe -->
+    <a
+      href="{% url 'add_classe' %}"
+      class="flex items-center gap-2 px-4 py-2 rounded transition hover:bg-purple-50 hover:text-purple-600 {% if request.resolver_match.url_name == 'add_classe' %} bg-purple-100 text-purple-700 {% endif %}"
+    >
+      <!-- SVG ici -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-clipboard2-plus-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5"
+        />
+        <path
+          d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585q.084.236.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5q.001-.264.085-.5M8.5 6.5V8H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V9H6a.5.5 0 0 1 0-1h1.5V6.5a.5.5 0 0 1 1 0"
+        />
+      </svg>
+      Ajouter une Classe
+    </a>
+
+    <!-- Ajouter Étudiant -->
+    <a
+      href="{% url 'add_etudiant' %}"
+      class="flex items-center gap-2 px-4 py-2 rounded transition hover:bg-blue-50 hover:text-blue-600 {% if request.resolver_match.url_name == 'add_etudiant' %} bg-blue-100 text-blue-700 {% endif %}"
+    >
+      <!-- SVG -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-person-fill-add"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"
+        />
+        <path
+          d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"
+        />
+      </svg>
+      Ajouter un Étudiant
+    </a>
+  </nav>
+</aside>
+
+<!-- JS Toggle Script -->
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const close = document.getElementById("menu-close");
+  const menu = document.getElementById("dashboard-menu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.remove("-translate-x-full");
+  });
+
+  close.addEventListener("click", () => {
+    menu.classList.add("-translate-x-full");
+  });
+</script>
+{% endif %}

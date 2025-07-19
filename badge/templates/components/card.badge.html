@@ -1,0 +1,114 @@
+<div
+  id="badge"
+  class="w-full max-w-[340px] aspect-[2/3] bg-white rounded-xl shadow-lg overflow-hidden border-4 border-gray-200 relative flex flex-col justify-between transition-all duration-300 ease-in-out print:shadow-none print:border-0"
+>
+  <!-- Bande supérieure -->
+  <div id="bgTop" class="relative z-[50] bg-cyan-400 h-[130px] overflow-hidden">
+    <div class="absolute top-2 right-4">
+      {% if logo_base64 %}
+      <img
+        src="data:image/png;base64,{{ logo_base64 }}"
+        alt="logo"
+        class="w-12 h-12 object-contain"
+      />
+      {% endif %}
+    </div>
+    <div class="absolute inset-0">
+      <div
+        class="bg-gray-300 w-[69vh] h-[500px] absolute top-4 left-[-69.5px] rounded-full rotate-[-42deg]"
+      ></div>
+      <div
+        class="bg-gray-200 w-[69vh] h-[500px] absolute top-7 left-[-69.5px] rounded-full rotate-[-42deg]"
+      ></div>
+      <div
+        class="bg-black w-[69vh] h-[500px] absolute top-7 left-[-69.5px] rounded-full rotate-[-42deg]"
+      ></div>
+      <div
+        class="bg-white w-[69vh] h-[500px] absolute top-10 left-[-60px] rounded-full rotate-[-8deg] overflow-hidden"
+      >
+        <!-- <div
+              class="bg-gray-100 w-[80vh] h-[40vh] absolute top-[-100px] right-[130px] rotate-[-25deg] z-[12]"
+            ></div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="relative z-[50] p-3 flex-1 rounded-t-full rounded">
+    <div class="flex flex-col items-center justify-center px-[80px]">
+      {% if photo_base64 %}
+      <div class="mb-4 flex items-center gap-2">
+        <div id="lineColor" class="w-1 h-40 bg-cyan-400 rounded-full"></div>
+        <div class="w-40 h-40 overflow-hidden bg-cyan-400 rounded-full">
+          <img
+            src="data:image/png;base64,{{ photo_base64 }}"
+            alt="photo"
+            class="object-cover w-40 h-40 rounded-full"
+          />
+        </div>
+      </div>
+      {% endif %}
+      <div class="text-center pb-6">
+        <h2
+          class="text-2xl font-bold text-black uppercase tracking-wide w-[300px]"
+        >
+          {{ etudiant.nom }} {{ etudiant.prenom }}
+        </h2>
+        <h4 class="text-gray-700 uppercase">
+          École : <span class="font-medium">{{ etudiant.ecole.nom }}</span>
+        </h4>
+      </div>
+      <div class="w-40 text-sm space-y-1">
+        <p>
+          <span id="textMatricule" class="text-cyan-400">Matricule :</span>
+          <span class="font-semibold text-gray-700"
+            >{{ etudiant.matricule }}</span
+          >
+        </p>
+        <p>
+          <span id="textNiveau" class="text-cyan-400">Niveau :</span>
+          <span class="font-medium text-gray-700">{{ etudiant.niveau }}</span>
+        </p>
+        <p>
+          <span id="textClasse" class="text-cyan-400">Classe :</span>
+          <span class="font-medium text-gray-700"
+            >{{ etudiant.classe.nom }}</span
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- QR Code -->
+    <div class="absolute bottom-[-4px] right-10 transform">
+      {% if qrcode_base64 %}
+      <img
+        src="data:image/png;base64,{{ qrcode_base64 }}"
+        alt="QR Code"
+        class="w-20 h-20 object-contain"
+      />
+      {% else %}
+      <p class="text-xs italic text-gray-400">QR code non disponible</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Bande inférieure (collée en bas avec rotate-180) -->
+  <div class="relative h-[100px] z-[13] flex-1">
+    <div id="bgBottom" class="relative bg-cyan-400 h-full overflow-hidden">
+      <!-- <div class="absolute inset-0 rotate-180">
+            <div
+              class="bg-gray-300 w-[69vh] h-[500px] absolute top-4 left-[-69.5px] rounded-full rotate-[-42deg]"
+            ></div>
+            <div
+              class="bg-gray-200 w-[69vh] h-[500px] absolute top-7 left-[-69.5px] rounded-full rotate-[-42deg]"
+            ></div>
+            <div
+              class="bg-black w-[69vh] h-[500px] absolute top-7 left-[-69.5px] rounded-full rotate-[-42deg]"
+            ></div>
+            <div
+              class="bg-white w-[69vh] h-[500px] absolute top-10 left-[-60px] rounded-full rotate-[-8deg]"
+            ></div>
+          </div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+<form method="POST" enctype="multipart/form-data" class="space-y-3">
+  {% csrf_token %}
+  <!-- Upload photo style avatar -->
+  <div class="flex justify-center">
+    <label for="photo" class="relative cursor-pointer">
+      <!-- default gray bg -->
+      <div
+        id="avatarPreview"
+        class="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-10 h-10"
+          fill="currentColor"
+          class="bi bi-person-bounding-box"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"
+          />
+          <path
+            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"
+          />
+        </svg>
+        <img
+          id="imagePreview"
+          src="#"
+          alt="Aperçu"
+          class="hidden w-full h-full object-cover"
+        />
+      </div>
+      <input
+        type="file"
+        name="photo"
+        id="photo"
+        accept="image/*"
+        class="hidden"
+        onchange="previewImage(event)"
+        required
+      />
+    </label>
+  </div>
+
+  <!-- Prénom & Nom -->
+  <div class="flex gap-4 items-center">
+    <div class="w-full">
+      <label for="nom" class="block text-sm font-medium text-gray-700"
+        >Nom</label
+      >
+      <input
+        type="text"
+        name="nom"
+        id="nom"
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-full p-2"
+      />
+    </div>
+  </div>
+  <div class="w-full">
+    <label for="prenom" class="block text-sm font-medium text-gray-700"
+      >Prénom</label
+    >
+    <input
+      type="text"
+      name="prenom"
+      id="prenom"
+      required
+      class="mt-1 block w-full border border-gray-300 rounded-full p-2 focus:ring-blue-500 focus:border-blue-500"
+    />
+  </div>
+  <div class="grid grid-cols-2 gap-4">
+    <!-- Matricule -->
+    <div>
+      <label for="matricule" class="block text-sm font-medium text-gray-700"
+        >Matricule</label
+      >
+      <input
+        type="text"
+        name="matricule"
+        id="matricule"
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-full p-2"
+      />
+    </div>
+
+    <!-- Date de naissance -->
+    <div>
+      <label
+        for="date_naissance"
+        class="block text-sm font-medium text-gray-700"
+        >Date de naissance</label
+      >
+      <input
+        type="date"
+        name="date_naissance"
+        id="date_naissance"
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-full p-2"
+      />
+    </div>
+  </div>
+  <div class="grid grid-cols-2 gap-4">
+    <!-- École -->
+    <div>
+      <label for="ecole" class="block text-sm font-medium text-gray-700"
+        >École</label
+      >
+      <select
+        name="ecole"
+        id="ecole"
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-full p-2"
+      >
+        {% for ecole in ecoles %}
+        <option value="{{ ecole.id }}">{{ ecole.nom }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Classe -->
+    <div>
+      <label for="classe" class="block text-sm font-medium text-gray-700"
+        >Classe</label
+      >
+      <select
+        name="classe"
+        id="classe"
+        class="mt-1 block w-full border border-gray-300 rounded-full p-2"
+      >
+        {% for classe in classes %}
+        <option value="{{ classe.id }}">
+          {{ classe.niveau }} - {{ classe.nom }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="text-end pt-4">
+    <button
+      type="submit"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full"
+    >
+      Enregistrer l'étudiant
+    </button>
+  </div>
+</form>

@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block title %}Bienvenue sur SekPrint{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<section
+  class="bg-gray-50 min-h-screen flex items-center justify-center px-4 py-10"
+>
+  <div class="max-w-4xl text-center">
+    <div class="mb-8">
+      <img
+        src="/static/images/images.png"
+        alt="SekPrint Logo"
+        class="mx-auto h-20 w-auto"
+      />
+      <!-- SekPrint -->
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+      Bienvenue sur <span class="text-blue-600">SekPrint</span>
+    </h1>
+    <p class="mt-4 text-lg text-gray-600">
+      Générez et gérez facilement les badges de vos étudiants dans une interface
+      simple, rapide et moderne.
+    </p>
+
+    <div class="mt-8 flex justify-center gap-4 flex-wrap">
+      <a
+        href="{% url 'add_etudiant' %}"
+        class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
+      >
+        🎓 Ajouter un étudiant
+      </a>
+      <a
+        href="{% url 'login' %}"
+        class="border border-gray-300 text-gray-800 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition"
+      >
+        🔒 Accès Admin
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="bg-white py-16 px-4">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+    <div class="p-6 border rounded-lg hover:shadow-lg transition">
+      <div class="text-blue-600 mb-4">
+        <svg
+          class="mx-auto w-12 h-12"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M5 13l4 4L19 7"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <h3 class="font-bold text-xl mb-2">Badges PDF</h3>
+      <p class="text-gray-600">
+        Générez automatiquement des badges étudiants au format PDF, prêts à être
+        imprimés.
+      </p>
+    </div>
+
+    <div class="p-6 border rounded-lg hover:shadow-lg transition">
+      <div class="text-blue-600 mb-4">
+        <svg
+          class="mx-auto w-12 h-12"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 10h11M9 21V3m12 10h-5.5"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <h3 class="font-bold text-xl mb-2">Gestion intuitive</h3>
+      <p class="text-gray-600">
+        Ajoutez, supprimez et gérez les étudiants de manière rapide et simple.
+      </p>
+    </div>
+
+    <div class="p-6 border rounded-lg hover:shadow-lg transition">
+      <div class="text-blue-600 mb-4">
+        <svg
+          class="mx-auto w-12 h-12"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 8v4l3 3M4 4h16v16H4V4z"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <h3 class="font-bold text-xl mb-2">Design moderne</h3>
+      <p class="text-gray-600">
+        Une interface soignée et professionnelle, compatible avec les derniers
+        navigateurs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-center text-sm text-gray-500 py-6 mt-10">
+  © 2025 SekPrint — Développé avec ❤️ par Espoir
+</footer>
+{% endblock %}

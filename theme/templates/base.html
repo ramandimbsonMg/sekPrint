@@ -1,0 +1,33 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}SekPrint Badge{% endblock %}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% tailwind_css %}
+
+    <!-- ApexCharts pour les graphiques -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body class="bg-gray-100 h-screen">
+    <!-- Barre de navigation principale -->
+    {% include "components/navigations/navigations.html" %}
+
+    <div class="flex pt-2 gap-4 mx-5 mt-2">
+      <div class="lg:w-[50vh] lg:relative absolute top-0 right-0">
+        {% include "components/slide/slide.bar.html" %}
+      </div>
+      <div class="w-full">
+        <main>{% block content %} {% endblock %}</main>
+      </div>
+    </div>
+
+    <script src="{% static 'js/charts.js' %}"></script>
+    <script src="{% static 'js/apexcharts.js' %}"></script>
+    <script src="{% static 'js/previewImage.js' %}"></script>
+  </body>
+</html>
+ 

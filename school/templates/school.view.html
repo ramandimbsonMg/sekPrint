@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %}Ajouter un Étudiant{% endblock %}
+{%block content %}
+<div class="lg:flex w-full gap-4">
+  <div class="lg:w-[100vh] bg-white p-4 rounded shadow-lg">
+    <!-- formulaire pour ajouter ecole -->
+    {% include "components/form/school.form.html" %}
+  </div>
+  <div>
+    <!-- card pour afficher la view des ecoles -->
+    {% include "components/card/list.school.html" %} {% endblock %}
+  </div>
+</div>

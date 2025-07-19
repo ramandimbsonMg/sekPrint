@@ -1,0 +1,18 @@
+<!-- templates/badge.html -->
+{% extends "base.html" %}
+
+{% block title %}Badge Étudiant{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded shadow p-6 w-96 mx-auto">
+    <img src="{{ etudiant.photo.url }}" class="w-24 h-24 rounded-full mx-auto mb-4" alt="Photo">
+    <h2 class="text-xl font-bold text-center">{{ etudiant.prenom }} {{ etudiant.nom }}</h2>
+    <p class="text-center text-gray-600">Matricule : {{ etudiant.matricule }}</p>
+    <p class="text-center text-gray-600">École : {{ etudiant.ecole.nom }}</p>
+    <p class="text-center text-gray-600">Classe : {{ etudiant.classe }}</p>
+    <div class="mt-4 text-center">
+        <a href="{% url 'pdf_badge' etudiant.id %}" class="text-blue-500 underline">Télécharger en PDF</a>
+    </div>
+
+</div>
+{% endblock %}

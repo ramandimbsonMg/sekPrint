@@ -1,0 +1,92 @@
+<div>
+  <h2 class="text-lg font-bold mb-6 text-gray-800 text-center underline lg:mt-0 mt-4">
+    Étudiants enregistrés
+  </h2>
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 rounded">
+    {% for etudiant in etudiants %}
+    <div
+      class="bg-white p-2 rounded shadow flex flex-col items-center text-center"
+    >
+      <img
+        src="{{ etudiant.photo.url }}"
+        alt="{{ etudiant.prenom }} {{ etudiant.nom }}"
+        class="w-20 h-20 object-cover rounded-full mb-4"
+      />
+      <h3 class="font-semibold line-clamp-1">
+        {{ etudiant.prenom }} {{ etudiant.nom }}
+      </h3>
+      <p class="text-sm text-gray-600">Matricule: {{ etudiant.matricule }}</p>
+      <!-- <p class="text-sm text-gray-600">École: {{ etudiant.ecole.nom }}</p> -->
+      {% if etudiant.classe %}
+      <p class="text-sm text-gray-600">
+        Classe: {{ etudiant.classe.niveau }} - {{ etudiant.classe.nom }}
+      </p>
+      {% endif %}
+
+      <!-- Bouton téléchargement badge PDF -->
+      <div class="justify-end flex gap-2 pt-3.5 items-center">
+        <a
+          href="{% url 'pdf_badge' etudiant.id %}"
+          target="_blank"
+          class="inline-block bg--600 hover:bg-blue-700 text- font-semibold p-2 rounded-full"
+          title="Télécharger badge PDF"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-download"
+            viewBox="0 0 16 16"
+          > 
+            <path
+              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"
+            />
+            <path
+              d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"
+            />
+          </svg>
+        </a>
+        <a
+          href="{% url 'pdf_badge' etudiant.id %}"
+          target="_blank"
+          class="text-sm text-blue-600 underline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-eye"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"
+            />
+            <path
+              d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Affichage QR code -->
+      {% if etudiant.qrcode %}
+      <div class="justify-end flex items-center relative mt-3 mb-4">
+        <div class="absolute left-12 w-12 h-12 bottom-0.5">
+          <img
+            src="{{ etudiant.qrcode.url }}"
+            alt="QR Code {{ etudiant.prenom }} {{ etudiant.nom }}"
+            class="w-12 h-12 mt-3 mb-2"
+          />
+        </div>
+      </div>
+      {% else %}
+      <p class="text-xs text-gray-400 italic mt-3 mb-4">Pas de QR code</p>
+      {% endif %}
+    </div>
+    {% empty %}
+    <p>Aucun étudiant enregistré.</p>
+    {% endfor %}
+  </div>
+</div>

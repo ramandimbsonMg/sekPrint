@@ -1,0 +1,47 @@
+@page {
+  size: A6 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #badge {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 340px !important;
+    width: 100% !important;
+    aspect-ratio: 2 / 3 !important;
+    margin: 0;
+    position: relative;
+    page-break-inside: avoid;
+  }
+  .image {
+    object-fit: cover;
+  }
+  /* Forcer impression des couleurs cyan */
+  #bgTop,
+  #bgBottom,
+  #lineColor,
+  #textMatricule,
+  #textNiveau,
+  #textClasse {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Masquer les boutons en impression */
+  button,
+  input[type="color"] {
+    display: none !important;
+  }
+  label,
+  #radioGroup,
+  label input[type="color"] {
+    display: none !important;
+  }
+}

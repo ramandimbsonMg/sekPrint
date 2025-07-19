@@ -1,0 +1,76 @@
+<div class="h-full">
+  <h2 class="text-lg font-bold text-blue-600 mb-4">Créer votre école</h2>
+  <form method="POST" enctype="multipart/form-data" class="space-y-4">
+    {% csrf_token %}
+    <div>
+      <label for="nom" class="block text-sm font-medium">Nom de l’école</label>
+      <input
+        type="text"
+        name="nom"
+        id="nom"
+        required
+        class="mt-1 w-full border border-gray-300 p-2 rounded-full"
+      />
+    </div>
+    <div>
+      <label for="adresse" class="block text-sm font-medium">Adresse</label>
+      <input
+        name="adresse"
+        id="adresse"
+        required
+        class="mt-1 w-full border border-gray-300 p-2 rounded-full"
+      />
+    </div>
+    <div>
+      <label for="logo" class="block text-sm font-medium mb-2"
+        >Logo (optionnel)</label
+      >
+      <!-- default gray bg -->
+      <label for="logo" class="relative cursor-pointer">
+        <!-- default gray bg -->
+        <div
+          id="avatarPreview"
+          class="w-20 h-20 rounded bg-gray-300 flex items-center justify-center overflow-hidden relative"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-image-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"
+            />
+          </svg>
+          <img
+            id="imagePreview"
+            src="#"
+            alt="Aperçu"
+            class="hidden w-full h-full object-cover"
+          />
+        </div>
+        <input
+          type="file"
+          name="logo"
+          id="logo"
+          accept="image/*"
+          class="hidden object-cover"
+          onchange="previewImage(event)"
+          required
+        />
+      </label>
+    </div>
+
+    <!-- Submit -->
+    <div class="text-end pt-4">
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full"
+      >
+        Créer l’école
+      </button>
+    </div>
+  </form>
+</div>
