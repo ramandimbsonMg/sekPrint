@@ -3,22 +3,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from student.models import Etudiant
-from classe.models import Classe
-from school.models import Ecole
-
-
-@login_required
-def dashboard(request):
-    ecoles = Ecole.objects.filter(user=request.user)
-    classes = Classe.objects.filter(ecole__in=ecoles)
-    etudiants = Etudiant.objects.filter(classe__in=classes)
-
-    return render(request, "dashboard.html", {
-        "etudiants_count": etudiants.count(),
-        "ecoles_count": ecoles.count(),
-        "classes_count": classes.count()
-    })
 
 # Vue login
 def user_login(request):

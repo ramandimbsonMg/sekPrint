@@ -9,7 +9,7 @@ urlpatterns = [
     # url reload tailwind
     path("__reload__/", include("django_browser_reload.urls")),
     
-    path('', include('landing.urls')),
+    path('', include('core.urls')),
     path('', include('school.urls')),
     path('', include('classe.urls')),
     path('', include('student.urls')),

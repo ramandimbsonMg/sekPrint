@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
 
     # apps
-    'landing',
+    'core',
     'badge',
     'classe',
     'student',
