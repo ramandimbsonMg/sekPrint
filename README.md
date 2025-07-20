@@ -38,7 +38,7 @@ python manage.py migrate
 python manage.py runserver
 
 👨‍💻 Auteur
-Espoir Ramandimbson
+Ramandimbson Espoir Matieu Albertin
 
 Étudiant en informatique, Madagascar 🇲🇬
 
